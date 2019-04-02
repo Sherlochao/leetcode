@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Stack;
 
 /**
- * 给定一个二叉树，返回它的 中序 遍历。
+ * 给定一个二叉树，返回它的 后序 遍历。
  * 示例:
  * 输入: [1,null,2,3]
  *  1
@@ -13,9 +13,9 @@ import java.util.Stack;
  *    2
  *   /
  *  3
- *  输出: [1,3,2]
+ *  输出: [3,2,1]
  */
-public class BinaryTreeInorderTraversal {
+public class BinaryTreePosorderTraversal {
 
     public static class TreeNode {
         int val;
@@ -27,37 +27,42 @@ public class BinaryTreeInorderTraversal {
         }
     }
 
-    public List<Integer> inorderTraversal(TreeNode root) {
+    public List<Integer> postorderTraversal(TreeNode root) {
         List<Integer> list = new ArrayList<>();
         if (null != root) {
-            Stack<TreeNode> stack = new Stack<>();
-            while (!stack.isEmpty() || null != root) {
-                if (null != root) {
-                    stack.push(root);
-                    root = root.left;
-                } else {
-                    root = stack.pop();
-                    list.add(root.val);
-                    root = root.right;
+            Stack<TreeNode> stack1 = new Stack<>();
+            Stack<TreeNode> stack2 = new Stack<>();
+            stack1.push(root);
+            while (!stack1.isEmpty()) {
+                root = stack1.pop();
+                stack2.push(root);
+                if (null != root.left) {
+                    stack1.push(root.left);
                 }
+                if (null != root.right) {
+                    stack1.push(root.right);
+                }
+            }
+            while (!stack2.isEmpty()) {
+                list.add(stack2.pop().val);
             }
         }
         return list;
     }
 
-    public List<Integer> inorderTraversal1(TreeNode root) {
+    public List<Integer> postorderTraversal1(TreeNode root) {
         List<Integer> list = new ArrayList<>();
-        this.inOrder(list, root);
+        this.posOrder(list, root);
         return list;
     }
 
-    private void inOrder(List<Integer> list, TreeNode root) {
+    private void posOrder(List<Integer> list, TreeNode root) {
         if (null == root) {
             return;
         }
-        inOrder(list, root.left);
+        posOrder(list, root.left);
+        posOrder(list, root.right);
         list.add(root.val);
-        inOrder(list, root.right);
     }
 
     public static void main(String[] args) throws Exception {
@@ -71,10 +76,10 @@ public class BinaryTreeInorderTraversal {
         root.left.left.left = new TreeNode(8);
         root.left.left.right = new TreeNode(9);
 
-        List<Integer> result = new BinaryTreeInorderTraversal().inorderTraversal(root);
+        List<Integer> result = new BinaryTreePosorderTraversal().postorderTraversal(root);
         System.out.println(result);
 
-        result = new BinaryTreeInorderTraversal().inorderTraversal1(root);
+        result = new BinaryTreePosorderTraversal().postorderTraversal1(root);
         System.out.println(result);
     }
 }
