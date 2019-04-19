@@ -13,15 +13,34 @@ package dp;
 public class LongestPalindromicSubstring {
 
     public static void main(String[] args) {
-        System.out.println(new LongestPalindromicSubstring().longestPalindrome("a"));
+        System.out.println(new LongestPalindromicSubstring().longestPalindrome1("baabb"));
     }
 
     /**
      * dp
      */
     public String longestPalindrome1(String s) {
-
-        return null;
+        if (s.isEmpty()) {
+            return s;
+        }
+        int len = s.length();
+        boolean[][] dp = new boolean[len][len];
+        int left = 0, right = 0;
+        for (int i = len - 2; i >= 0; i--) {
+            dp[i][i] = true;
+            for (int j = i + 1; j < len; j++) {
+                // if charAt(i) == charAt(j)
+                //     j - i == 0 回文 a
+                //     j - i == 1 回文 aa
+                //     j - i == 2 回文 aba
+                dp[i][j] = s.charAt(i) == s.charAt(j) && (j - i < 2 || dp[i + 1][j - 1]);
+                if (dp[i][j] && right - left < j - i) {
+                    left = i;
+                    right = j;
+                }
+            }
+        }
+        return s.substring(left, right + 1);
     }
 
     /**
