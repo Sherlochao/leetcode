@@ -22,8 +22,39 @@ import java.util.List;
  */
 public class LetterCasePermutation {
 
+    /**
+     * 回溯
+     */
     public List<String> letterCasePermutation(String S) {
         List<String> result = new ArrayList<>();
+        backtracking(result, S, new StringBuilder(), 0);
         return result;
+    }
+
+    private void backtracking(List<String> result, String s, StringBuilder newStr, int start) {
+        if (start == s.length()) {
+            result.add(newStr.toString());
+            return;
+        }
+        char curChar = s.charAt(start);
+        if (Character.isDigit(curChar)) {
+            newStr.append(curChar);
+            backtracking(result, s, newStr, start + 1);
+            // 回退
+            newStr.deleteCharAt(newStr.length() - 1);
+        } else {
+            newStr.append(Character.toLowerCase(curChar));
+            backtracking(result, s, newStr, start + 1);
+            // 回退
+            newStr.deleteCharAt(newStr.length() - 1);
+            newStr.append(Character.toUpperCase(curChar));
+            backtracking(result, s, newStr, start + 1);
+            // 回退
+            newStr.deleteCharAt(newStr.length() - 1);
+        }
+    }
+
+    public static void main(String[] args) {
+        System.out.println(new LetterCasePermutation().letterCasePermutation("a1b2"));
     }
 }
