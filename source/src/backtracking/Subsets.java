@@ -51,9 +51,9 @@ public class Subsets {
         return list;
     }
 
-    private void backtrack(List<List<Integer>> list, int[] nums, int begin, List<Integer> cur) {
+    private void backtrack(List<List<Integer>> list, int[] nums, int start, List<Integer> cur) {
         list.add(new ArrayList<>(cur));
-        for (int i = begin; i < nums.length; i++) {
+        for (int i = start; i < nums.length; i++) {
             cur.add(nums[i]);
             backtrack(list, nums, i + 1, cur);
             // 回退
