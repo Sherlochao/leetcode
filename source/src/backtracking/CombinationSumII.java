@@ -1,5 +1,9 @@
 package backtracking;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * 给定一个数组 candidates 和一个目标数 target ，找出 candidates 中所有可以使数字和为 target 的组合。
  *
@@ -27,4 +31,35 @@ package backtracking;
  *      [5]
  *  ]
  */
-public class CombinationSumII {}
+public class CombinationSumII {
+
+    public List<List<Integer>> combinationSum2(int[] candidates, int target) {
+        List<List<Integer>> result = new ArrayList<>();
+        Arrays.sort(candidates);
+        backtracking(result, candidates, target, 0, new ArrayList<>());
+        return result;
+    }
+
+    private void backtracking(List<List<Integer>> result, int[] candidates, int target, int start, List<Integer> cur) {
+        if (target == 0) {
+            result.add(new ArrayList<>(cur));
+            return;
+        }
+        if (target < 0) {
+            return;
+        }
+        for (int i = start; i < candidates.length && candidates[i] <= target; i++) {
+            // 去重
+            if (i == start || candidates[i] != candidates[i - 1]) {
+                cur.add(candidates[i]);
+                backtracking(result, candidates, target - candidates[i], i + 1, cur);
+                cur.remove(cur.size() - 1);
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        System.out.println(new CombinationSumII().combinationSum2(new int[] {10, 1, 2, 7, 6, 1, 5}, 8));
+    }
+
+}
