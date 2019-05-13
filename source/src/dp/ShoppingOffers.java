@@ -1,5 +1,7 @@
 package dp;
 
+import java.util.List;
+
 /**
  * 在LeetCode商店中， 有许多在售的物品。
  *
@@ -34,4 +36,9 @@ package dp;
  * 每种物品，你最多只需要购买6个。
  * 你不可以购买超出待购清单的物品，即使更便宜。
  */
-public class ShoppingOffers {}
+public class ShoppingOffers {
+
+    public int shoppingOffers(List<Integer> price, List<List<Integer>> special, List<Integer> needs) {
+        return 0;
+    }
+}
