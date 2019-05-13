@@ -38,4 +38,9 @@ package dp;
  *      costs.length == 3
  *      1 <= costs[i] <= 1000
  */
-public class MinimumCostForTickets {}
+public class MinimumCostForTickets {
+
+    public int mincostTickets(int[] days, int[] costs) {
+        return 0;
+    }
+}
