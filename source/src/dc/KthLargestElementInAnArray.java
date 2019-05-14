@@ -14,4 +14,9 @@ package dc;
  * 说明:
  * 你可以假设 k 总是有效的，且 1 ≤ k ≤ 数组的长度。
  */
-public class KthLargestElementInAnArray {}
+public class KthLargestElementInAnArray {
+
+    public int findKthLargest(int[] nums, int k) {
+        return 0;
+    }
+}
