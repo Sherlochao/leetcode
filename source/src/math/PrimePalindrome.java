@@ -25,4 +25,9 @@ package math;
  *  1 <= N <= 10^8
  *  答案肯定存在，且小于 2 * 10^8。
  */
-public class PrimePalindrome {}
+public class PrimePalindrome {
+
+    public int primePalindrome(int N) {
+        return 0;
+    }
+}
