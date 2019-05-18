@@ -26,4 +26,7 @@ package dp;
  * -100 <= A[i][j] <= 100
  */
 public class MinimumFallingPathSum {
+    public int minFallingPathSum(int[][] A) {
+        return 0;
+    }
 }
