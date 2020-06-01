@@ -1,5 +1,7 @@
 package tree;
 
+import base.TreeNode;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,14 +25,18 @@ import java.util.List;
  */
 public class PathSum2 {
 
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
+    public static void main(String[] args) throws Exception {
+        TreeNode root = new TreeNode(5);
+        root.left = new TreeNode(4);
+        root.right = new TreeNode(8);
 
-        TreeNode(int x) {
-            val = x;
-        }
+        root.left.left = new TreeNode(11);
+        root.right.left = new TreeNode(13);
+        root.right.right = new TreeNode(4);
+        root.right.right.right = new TreeNode(1);
+        root.left.left.left = new TreeNode(7);
+        root.left.left.right = new TreeNode(2);
+        System.out.println(new PathSum2().pathSum(root, 22));
     }
 
     public List<List<Integer>> pathSum(TreeNode root, int sum) {

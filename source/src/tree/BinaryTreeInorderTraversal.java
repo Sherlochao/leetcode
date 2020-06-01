@@ -1,5 +1,7 @@
 package tree;
 
+import base.TreeNode;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
@@ -16,16 +18,6 @@ import java.util.Stack;
  *  输出: [1,3,2]
  */
 public class BinaryTreeInorderTraversal {
-
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
 
     public List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> list = new ArrayList<>();

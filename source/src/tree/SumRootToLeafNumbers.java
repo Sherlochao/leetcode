@@ -1,5 +1,7 @@
 package tree;
 
+import base.TreeNode;
+
 /**
  * 给定一个二叉树，它的每个结点都存放一个 0-9 的数字，每条从根到叶子节点的路径都代表一个数字。
  * 例如，从根到叶子节点路径 1->2->3 代表数字 123。
@@ -30,16 +32,6 @@ package tree;
  * 因此，数字总和 = 495 + 491 + 40 = 1026.
  */
 public class SumRootToLeafNumbers {
-
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
 
     private int result = 0;
 

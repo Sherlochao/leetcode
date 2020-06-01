@@ -1,5 +1,7 @@
 package tree;
 
+import base.TreeNode;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -21,16 +23,6 @@ import java.util.Queue;
  *     15   7
  */
 public class PosInOrderToBinaryTree {
-
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
 
     public TreeNode buildTree(int[] inorder, int[] postorder) {
         if (null == inorder || null == postorder) {

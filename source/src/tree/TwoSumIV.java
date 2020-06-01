@@ -1,5 +1,7 @@
 package tree;
 
+import base.TreeNode;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,16 +27,6 @@ import java.util.List;
  * 输出: False
  */
 public class TwoSumIV {
-
-    private static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
 
     // 中序遍历 + 双指针
     public boolean findTarget(TreeNode root, int k) {

@@ -1,5 +1,7 @@
 package tree;
 
+import base.TreeNode;
+
 /**
  * 如果二叉树每个节点都具有相同的值，那么该二叉树就是单值二叉树。
  * 只有给定的树是单值二叉树时，才返回 true；否则返回 false。
@@ -14,16 +16,6 @@ package tree;
  * 每个节点的值都是整数，范围为 [0, 99] 。
  */
 public class UnivaluedBinaryTree {
-
-    private static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
 
     public boolean isUnivalTree(TreeNode root) {
         if (null == root) {

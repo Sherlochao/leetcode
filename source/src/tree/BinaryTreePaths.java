@@ -1,5 +1,7 @@
 package tree;
 
+import base.TreeNode;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,16 +10,6 @@ import java.util.List;
  * @date 2019/4/10 7:20 PM
  */
 public class BinaryTreePaths {
-
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
 
     public List<String> binaryTreePaths(TreeNode root) {
         List<String> result = new ArrayList<>();

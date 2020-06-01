@@ -1,5 +1,7 @@
 package tree;
 
+import base.TreeNode;
+
 /**
  * 翻转一棵二叉树。
  * 示例：
@@ -17,16 +19,6 @@ package tree;
  *   9   6 3   1
  */
 public class InvertBinaryTree {
-
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
 
     public TreeNode invertTree(TreeNode root) {
         if (null == root) {

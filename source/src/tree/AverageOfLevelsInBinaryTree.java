@@ -1,5 +1,7 @@
 package tree;
 
+import base.TreeNode;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -21,16 +23,6 @@ import java.util.Queue;
  * 节点值的范围在32位有符号整数范围内。
  */
 public class AverageOfLevelsInBinaryTree {
-
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
 
     public List<Double> averageOfLevels(TreeNode root) {
         List<Double> result = new ArrayList<>();

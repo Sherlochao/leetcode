@@ -1,5 +1,7 @@
 package tree;
 
+import base.TreeNode;
+
 /**
  * 给定一个二叉树，找出其最小深度。
  * 最小深度是从根节点到最近叶子节点的最短路径上的节点数量。
@@ -14,16 +16,6 @@ package tree;
  * 返回它的最小深度  2.
  */
 public class BinaryTreeMinimumDepth {
-
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
 
     public int minDepth(TreeNode root) {
         if (null == root) {
